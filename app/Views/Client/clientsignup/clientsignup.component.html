@@ -1,0 +1,45 @@
+ <div style="margin-left: 35%;" class="uren-login-register_area">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-6 col-xs-12">
+                <form #f="ngForm" (ngSubmit)="add(f)">
+                    <div class="login-form">
+                        <h4 class="login-title">Register</h4>
+                        <div class="row">
+                            <div class="col-md-6 col-12 mb--20">
+                                <label>First Name</label>
+                                <input name="nom" ngModel #nom="ngModel" type="text" placeholder="First Name">
+                            </div>
+                            <div class="col-md-6 col-12 mb--20">
+                                <label>Last Name</label>
+                                <input name="prenom" ngModel #prenom="ngModel" type="text" placeholder="Last Name">
+                            </div>
+                            <div class="col-md-6 col-12 mb--20">
+                                <label>Num Tel</label>
+                                <input  name="numtel" ngModel #numtel="ngModel" type="text" placeholder="Num tel">
+                            </div>
+                            <div class="col-md-6 col-12 mb--20">
+                                <label>Cin</label>
+                                <input name="cin" ngModel #cin="ngModel" type="text" placeholder="Cin">
+                            </div>
+                         
+                            <div class="col-md-12">
+                                <label>Email Address*</label>
+                                <input name="email" ngModel #email="ngModel" type="email" placeholder="Email Address">
+                            </div>
+                            <div class="col-md-6">
+                                <label>Password</label>
+                                <input name="mdp" ngModel #mdp="ngModel" type="password" placeholder="Password">
+                            </div>
+                            <input type="file" class="file-input" style="padding-bottom:15px ;" (change)="onFileSelected($event)" #fileUpload > <br>
+
+                            <div class="col-12">
+                                <button type="submit" class="uren-register_btn">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,140 @@
+<div style="margin-top: -530px;" class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1> Sub Categories </h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"> <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal" >Add new sub  Category</button></li>
+             </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+      <!-- Default box -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Sub Categories</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+              <i class="fas fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+        <div class="card-body p-0">
+          <table class="table table-striped projects">
+              <thead>
+                  <tr>
+                      <th style="width: 1%">
+                          #
+                      </th>
+                      <th style="width: 20%">
+                          Sub Category Name
+                      </th>
+                      <th style="width: 30%">
+                        Category
+                     </th>
+                   
+                      
+                      <th style="width: 20%">
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor='let item of subcategories'>
+                      <td>
+                          #
+                      </td>
+                      <td>
+                          <a>
+                            {{item.nomsubCategory}}
+                          </a>
+                          <br/>
+                        
+                      </td>
+                      <td>
+                              {{item.Category.nomCategory}}
+                      </td>
+                      <td class="project_progress">
+                         
+                      </td>
+                      <td class="project-state">
+                       </td>
+                      <td class="project-actions text-right">
+                          <a (click)='saveid(item._id)' class="btn btn-info btn-sm"  data-toggle="modal" data-target="#editmodal">
+                              <i class="fas fa-pencil-alt">
+                              </i>
+                              Edit
+                          </a>
+                          <a class="btn btn-danger btn-sm" href="#">
+                              <i class="fas fa-trash">
+                              </i>
+                              Delete
+                          </a>
+                      </td>
+                  </tr>
+                 
+              </tbody>
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add  Sub Category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input   name="name" [(ngModel)]="name" type="text"  class="form-control" placeholder="Category name "/>
+            <select ngModel name="option" class="form-control"    (change)= "Function(t.value)" #t>
+                <option *ngFor="let op of categories" [value]="op._id"    >
+                    {{op.nomCategory}}
+                </option>
+            </select>
+        </div>
+        <div class="modal-footer">
+          <button   #CloseModal type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="postCategories()" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="editmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <input   name="nameedit" [(ngModel)]="nameedit" type="text"  class="form-control" placeholder="Category name "/>
+        </div>
+        <div class="modal-footer">
+          <button   #CloseModal type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button (click)="postedit()" type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
